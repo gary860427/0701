@@ -50,6 +50,28 @@ a {
     /* 將預設inline改為block */
     display: block;
     text-decoration: none;
+    color: #0c1216;
+}
+
+p{
+    font-size: .8rem;
+    
+}
+
+/* 共用區 */
+.btn-s{
+    background-color: white;
+    width: auto!important;
+    height: 35px;
+    line-height: 30px;
+    padding: 0 10px;
+    border-radius: 99px;
+    transition: .35s ease-in-out;
+}
+
+.btn-s:hover{
+    background-color: #0c1216;
+    color: #ffffff;
 }
 
 /*頁首區*/
@@ -115,14 +137,24 @@ a {
 }
 
 
+
 .navigation .menu {
     display: flex;
     /* 控制父層外距 */
     margin: 10px 0;
 }
+.navigation .menu li{
+    border-right:solid 2px #0c1216;
+}
+
+.navigation .menu li:last-child{
+    border-right: none;
+}
 
 .navigation .menu a {
     color:#0c1216;
+    font-size: 0.9rem;
+    line-height: 1;
     /* 控制子層外距 */
     margin:0 10px;
     border-bottom: solid 2px transparent;
