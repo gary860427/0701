@@ -1,6 +1,13 @@
 @charset "UTF-8";
-
 /* UTF-8 一定要在行數1 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
+
+/* import一定要在第二行 */
+@font-face {
+    font-family: emma;
+    src: url(../webfonts/emmasophia.ttf);
+}
+
 /* 重置所有標籤的樣式 */
 * {
     margin: 0;
@@ -53,15 +60,15 @@ a {
     color: #0c1216;
 }
 
-p{
+p {
     font-size: .8rem;
-    
+
 }
 
 /* 共用區 */
-.btn-s{
+.btn-s {
     background-color: white;
-    width: auto!important;
+    width: auto !important;
     height: 35px;
     line-height: 30px;
     padding: 0 10px;
@@ -69,7 +76,7 @@ p{
     transition: .35s ease-in-out;
 }
 
-.btn-s:hover{
+.btn-s:hover {
     background-color: #0c1216;
     color: #ffffff;
 }
@@ -108,7 +115,8 @@ p{
     height: 35px;
     /* border: solid 1px;  邊框*/
     margin-left: 10px;
-    transition: 0.35s ease-in-out;/* 滑鼠按鈕變換轉場的特效 */
+    transition: 0.35s ease-in-out;
+    /* 滑鼠按鈕變換轉場的特效 */
 }
 
 .navigation .icon .icon-fb {
@@ -143,25 +151,99 @@ p{
     /* 控制父層外距 */
     margin: 10px 0;
 }
-.navigation .menu li{
-    border-right:solid 2px #0c1216;
+
+.navigation .menu li {
+    border-right: solid 2px #0c1216;
 }
 
-.navigation .menu li:last-child{
+.navigation .menu li:last-child {
     border-right: none;
 }
 
 .navigation .menu a {
-    color:#0c1216;
+    color: #0c1216;
     font-size: 0.9rem;
     line-height: 1;
     /* 控制子層外距 */
-    margin:0 10px;
+    margin: 0 10px;
     border-bottom: solid 2px transparent;
 }
 
-.navigation .menu a:hover{
+.navigation .menu a:hover {
     /* hover 滑鼠觸碰到的轉場特效 border-bottom:下邊框 */
     border-bottom: solid 2px #0c1216;
     transition: 0.35 ease-in-out;
+}
+
+/* 內容共用區 */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  /*高度用vh 用px會整個跑到上面去*/
+}
+
+/* 讓聯絡我們置中 */
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title h2 {
+    font-family: emma, sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: .3rem;
+    border-bottom: 2px solid #444;
+}
+
+.title h3 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: .2rem;
+}
+
+/* 聯絡我們區 */
+#contact {
+    /* 背景影像基本設定 */
+    background-image: url(../image/images/bg_contact.jpg);
+    background-size: cover;                 /*自動剪裁*/
+    background-position: center center;     /*水平垂直置中*/
+    background-repeat: no-repeat;           /*背景不重複填滿*/
+    /* 固定背景 */
+    background-attachment: fixed;
+}
+#form--contact {
+    display: flex;
+    flex-direction: column;
+    width: 35%;     /*寬度都用百分比*/
+}
+
+#form--contact label{
+    font-size: .85rem;
+    line-height: 2;
+    margin-top: 1rem;
+}
+
+#form--contact input,#form--contact textarea {
+    padding: 6px;
+    color: #8f6d6d;
+    font-weight: 600;
+}
+
+#form--contact input::placeholder, #form--contact textarea::placeholder{
+    font-size: .8rem;
+    font-weight: 400;
+    color: #b49797;
+    padding: 15px 5px;
+}
+
+#form--contact small {
+    padding: .8px;
+    color: #8f6d6d;
+    font-weight: 600;
 }
