@@ -66,8 +66,40 @@ p {
 }
 
 /* 共用區 */
+:root{
+    --deep:#444;
+    --grey:#999;
+    --light:#fff0f0;
+
+    /* 背景 */
+    --primary:#f2edf0;
+    --secondary:#e6ece5;
+    --tertiary:#ecf0f4;
+
+    /* 輔助 */
+    --lesser-1:#f3e4e4;
+    --lesser-2:#efdbdb;
+    --lesser-3:#cdaaab;
+    --lesser-4:#a97f81;
+    --lesser-5:#8f6d6d;
+
+    /* 透明 */
+    --alpha-w-60:rgba(255, 255, 255, .6);
+    --alpha-b-20:rgba(0, 0, 0, 0.20);
+    --alpha-b-40:rgba(0, 0, 0, 0.40);
+    --alpha-r-60:rgba(220, 185, 185, 0.6);
+
+    /* 漸層 */
+    --gradient-w-a:rgba(255, 255, 255, 0.15),rgba(255, 255, 255, .5);
+
+    /* 陰影 */
+    --box-shadow-g:2px 2px 3px rgba(0, 0, 0, 0.15),
+    inset -1px -1px rgba(255, 255, 255, .8);
+}
+
 .btn-s {
-    background-color: white;
+    background-color: var(--light);
+    color: var(--deep);
     width: auto !important;
     height: 35px;
     line-height: 30px;
@@ -118,7 +150,7 @@ button#btn_contact--submit {
 }
 
 .logo svg {
-    filter: drop-shadow(2px 2px rgba(255, 255, 255, .6));
+    filter: drop-shadow(2px 2px var(--alpha-w-60));
 }
 
 .navigation {
@@ -243,7 +275,7 @@ section {
 .box__list .item {
     flex: 1;
     margin: 0 15px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.20);
+    box-shadow: 3px 3px 10px var(--alpha-b-20);
     border-radius: 20px;
     overflow: hidden;
 }
@@ -275,6 +307,19 @@ section {
 }
 
 /* 最新消息區 */
+#news{
+    background-color: var(--primary);
+}
+
+#news .content{
+    background-color: var(--alpha-w-60);
+    transition: .4s;
+}
+
+#news .content:hover{
+    background-color: var(--light);
+}
+
 #news p{
     /* 多行省略 */
     overflow: hidden;
@@ -285,6 +330,15 @@ section {
 }
 
 /* 服務項目區 */
+#service{
+    background-color: var(--secondary);
+    transition: .4s;
+}
+
+#service .content:hover{
+    background-color: var(--alpha-b-20);
+}
+
 #service p{
     /* 單行省略 */
     overflow: hidden;
@@ -296,7 +350,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 60vh;
+    height: 65vh;
     background-position: center;
     background-size: cover;
 }
@@ -304,7 +358,8 @@ section {
 #service a{
     /* width: 100%;    父元素的flex若為row，則寬度抓內容尺寸，所以手動寫回來 */
     color: white;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: var(--alpha-b-40);
+
 }
 
 .svc-1{
@@ -321,6 +376,38 @@ section {
 
 .svc-4{
     background-image: url(../image/images/pt_svc4.jpg);
+}
+
+/* 相關影片區 */
+#video {
+    background-color: var(--tertiary);
+}
+
+.video {
+    width: 60%;
+    max-width: 1050px;
+}
+
+video {
+    width: 100%;
+}
+
+/* 關於我們區 */
+
+#about .content {
+    width: 65%;
+    height: 100vh;      /* 高度%,是抓父元素的相對高度 */
+    background-color: var(--alpha-r-60);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about p {
+    width: 85%;
+    height: 65vh;
+    overflow: auto;
 }
 
 /* 聯絡我們區 */
@@ -383,7 +470,7 @@ section {
     border-radius: 15px;
     /*圓角*/
     padding: 6px;
-    color: #8f6d6d;
+    color: var(--lesser-4);
     /* font-family: 'Noto Sans TC', sans-serif; */
     font-weight: 600;
     /* 取消表單顏色的預設背景色 */
@@ -394,20 +481,20 @@ section {
 #form--contact input:focus,
 #form--contact textarea:focus {
     /* 修改focus預設樣式 */
-    outline: 2px solid #b49797;
+    outline: 2px solid var(--lesser-4);
 }
 
 #form--contact input::placeholder,
 #form--contact textarea::placeholder {
     font-size: .8rem;
     font-weight: 400;
-    color: #b49797;
+    color: var(--lesser-4);
     padding: 15px 5px;
 }
 
 #form--contact small {
     padding: .6px;
-    color: #8f6d6d;
+    color: var(--lesser-4);
     font-weight: 600;
     font-size: .6rem;
 }
@@ -437,7 +524,7 @@ button#btn_contact--submit {
 }
 
 button#btn_contact--submit span {
-    color: #8f6d6d;
+    color: var(--lesser-3);
     font-size: 12.8px;
     font-weight: 700;
     letter-spacing: 1rem;
