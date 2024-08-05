@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* UTF-8 一定要在行數1 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Noto+Serif+TC:wght@200..900&display=swap');
 
 /* import一定要在第二行 */
 @font-face {
@@ -149,7 +149,7 @@ p {
 
 #form--contact input,
 #form--contact textarea,
-.navigation .menu,
+#topbar .navigation .menu,
 button#btn_contact--submit {
     /* 玻璃擬態效果 */
     /*設定邊框*/
@@ -235,6 +235,7 @@ button#btn_contact--submit {
 }
 
 .navigation .menu {
+
     display: flex;
     /* 控制父層外距 */
     margin: 15px 0;
@@ -243,11 +244,11 @@ button#btn_contact--submit {
 }
 
 .navigation .menu li {
-    border-right: solid 2px #0c1216;
+    border-right: solid 1px #0c1216;
 }
 
 .navigation .menu li:last-child {
-    border-right: none;
+    border: none;
 }
 
 .navigation .menu a {
@@ -427,10 +428,14 @@ section {
     max-width: 1050px;
 }
 
+video {
+    width: 100%;
+}
+
 
 /* 關於我們區 */
 
-#about{
+#about {
     position: relative;
     background-color: var(--lesser-2);
 }
@@ -464,7 +469,7 @@ section {
     filter: brightness(120%) contrast(80%);
 }
 
-#about p::-webkit-scrollbar-thumb{
+#about p::-webkit-scrollbar-thumb {
     border-radius: 99px;
 }
 
@@ -473,7 +478,8 @@ section {
 }
 
 #about p::-webkit-scrollbar-button {
-    display: none; /* 預設就是display:none 是因為body有設定button,所以需要另外設定取消 */
+    display: none;
+    /* 預設就是display:none 是因為body有設定button,所以需要另外設定取消 */
 }
 
 #about p::-webkit-scrollbar-corner {
@@ -654,4 +660,35 @@ button#btn_contact--submit:hover span {
     100% {
         transform: translate3d(0, 0, 0) translateZ(0);
     }
+}
+
+/* 頁尾區 */
+footer {
+    padding: 20px;
+}
+
+footer div {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 取消頁首區的間距 */
+footer .navigation .menu {
+    margin: 0;
+    padding: 0;
+}
+
+footer .navigation .menu a {
+    font-weight: 500;
+}
+
+/* 取消子選單的邊框 */
+/* .navigation .submenu li {
+    border: none;
+} */
+
+/* 取消頁尾區全部的邊框 */
+.navigation .menu li {
+    border: none;
+    margin: 10px 0;
 }
