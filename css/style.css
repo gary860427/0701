@@ -25,7 +25,7 @@ body {
         "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
     font-size: 100%;
     line-height: 1.5;
-    /* background-color: blanchedalmond; */
+    background-color: blanchedalmond;
 }
 
 /* 重置標題 */
@@ -147,6 +147,20 @@ p {
     color: #ffffff;
 }
 
+#gotop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    background-color: var(--alpha-r-60);
+    border-radius: 50%;
+    padding: 5px;
+
+    cursor: pointer; /* 游標樣式:手指 */
+}
+
 #form--contact input,
 #form--contact textarea,
 #topbar .navigation .menu,
@@ -158,6 +172,7 @@ button#btn_contact--submit {
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), inset -1px -1px rgba(255, 255, 255, .8);
     /* backdrop-filter: drop-shadow( 2px 2px 3px rgba(0, 0, 0, 0.3)); */
     backdrop-filter: blur(6px);
+    background-color: rgba(220, 185, 185, 0.2);
 }
 
 
@@ -209,6 +224,7 @@ button#btn_contact--submit {
     height: 3px;
     background-color: var(--deep);
     margin: 5px auto;
+    transition: .35s;
 }
 
 /* 主要選單區 */
@@ -290,20 +306,87 @@ button#btn_contact--submit {
     transition: 0.35 ease-in-out;
 }
 
-@media(min-width:641px){
-    .hamburger{
+@media(min-width:641px) {
+    .hamburger {
         display: none;
     }
 }
 
-@media(max-width:640px){
-    .navigation .menu {
-        flex-direction: column;
-        border-radius: 15px;
+@media(max-width:640px) {
+
+    #topbar {
+        align-items: flex-start;
     }
+
+    .hamburger.is-active .bar:nth-child(1) {
+        transform: rotate(45deg) translateY(11px);
+    }
+
+    .hamburger.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.is-active .bar:nth-child(3) {
+        transform: rotate(-45deg) translateY(-11px);
+    }
+
+    #topbar .navigation .menu {
+        text-align: center;
+        flex-direction: column;
+        order: -1;
+        background-image: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        background-color: transparent;
+    }
+
+    .navigation {
+        /* 副軸(水平)置中 */
+        display: none;
+        align-items: center;
+        padding: 10px;
+        border-radius: 15px;
+        /* 以下玻璃擬態 */
+        background-image: linear-gradient(150deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.6));
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3), inset -1px -1px rgba(255, 255, 255, .8);
+        backdrop-filter: blur(6px);
+        background-color: var(--alpha-w-60);
+        /* 動畫效果 */
+        animation: hide .35s both;
+    }
+
+    .navigation.show {
+        display: flex;
+        /* 動畫效果 */
+        animation: show .35s both;
+    }
+
+    @keyframes hide {
+        from {
+            opacity: 1;
+            display: flex;
+        }
+
+        to {
+            opacity: 0;
+            display: none;
+        }
+    }
+
+    @keyframes show {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
     .navigation .menu li {
         border: none;
     }
+
     .navigation .menu a {
         margin: 15px;
     }
